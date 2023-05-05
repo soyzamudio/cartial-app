@@ -17,11 +17,15 @@ export const Banner = component$(() => {
           </p>
         </div>
         <div class="hidden relative flex-1 lg:flex justify-end items-end">
-          <img class="rounded-s-3xl" src="images/hero.jpg" alt="Hero" />
+          <img
+            class="rounded-s-3xl max-h-[650px]"
+            src="images/hero.jpg"
+            alt="Hero"
+          />
           <div class="absolute h-full bg-gradient-to-r from-transparent to-off-white w-32"></div>
         </div>
       </div>
-      <div class="container mx-4">
+      <div class="container">
         <Search />
       </div>
     </section>
