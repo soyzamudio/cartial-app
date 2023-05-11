@@ -16,14 +16,20 @@ export const useSearchParams = routeLoader$(async (req: any) => {
     "transaction_type",
     req.url.searchParams.get("transaction_type") || "venta"
   );
+  if (req.url.searchParams.get("price_min") !== "0") {
+    url.searchParams.set("price_min", req.url.searchParams.get("price_min"));
+  }
+  if (req.url.searchParams.get("price_max") !== "0") {
+    url.searchParams.set("price_max", req.url.searchParams.get("price_max"));
+  }
   url.searchParams.set("price_min", req.url.searchParams.get("price_min") || 0);
   url.searchParams.set("price_max", req.url.searchParams.get("price_max") || 0);
   url.searchParams.set("rooms", req.url.searchParams.get("rooms") || 0);
   url.searchParams.set("bathrooms", req.url.searchParams.get("bathrooms") || 0);
-  url.searchParams.set(
-    "property_type",
-    req.url.searchParams.get("property_types") || "home"
-  );
+  // url.searchParams.set(
+  //   "property_type",
+  //   req.url.searchParams.get("property_types") || "home"
+  // );
 
   const response = await fetch(url.toString());
 
