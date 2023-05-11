@@ -4,10 +4,9 @@ import { PropertyCard } from "~/components/property-card/property-card";
 import { PropertyFilters } from "~/components/property-filters/property-filters";
 import { propertyTypes as types } from "~/data/property-types";
 import type { DocumentHead } from "@builder.io/qwik-city";
-// import type { Property } from "~/interfaces/property.interface";
+import type { Property } from "~/interfaces/property.interface";
 
 export const useSearchParams = routeLoader$(async (req: any) => {
-  console.log("req", req);
   // query the API for properties with payload from mongodb
   const url = new URL(import.meta.env.VITE_API_BASE_URL + "/property");
 
@@ -16,14 +15,14 @@ export const useSearchParams = routeLoader$(async (req: any) => {
     "transaction_type",
     req.url.searchParams.get("transaction_type") || "venta"
   );
-  if (req.url.searchParams.get("price_min") !== "0") {
+  if (req.url.searchParams.get("price_min")) {
     url.searchParams.set("price_min", req.url.searchParams.get("price_min"));
   }
-  if (req.url.searchParams.get("price_max") !== "0") {
+
+  if (req.url.searchParams.get("price_max")) {
     url.searchParams.set("price_max", req.url.searchParams.get("price_max"));
   }
-  url.searchParams.set("price_min", req.url.searchParams.get("price_min") || 0);
-  url.searchParams.set("price_max", req.url.searchParams.get("price_max") || 0);
+
   url.searchParams.set("rooms", req.url.searchParams.get("rooms") || 0);
   url.searchParams.set("bathrooms", req.url.searchParams.get("bathrooms") || 0);
   // url.searchParams.set(
@@ -34,11 +33,7 @@ export const useSearchParams = routeLoader$(async (req: any) => {
   const response = await fetch(url.toString());
 
   const data = await response.json();
-  console.log(data);
-  // data[1] = data[0];
-  // data[2] = data[0];
-  // data[3] = data[0];
-  return [];
+  return data as Property[];
 });
 
 export default component$(() => {
