@@ -4,7 +4,7 @@ import { Link } from "@builder.io/qwik-city";
 
 export const Header = component$(() => {
   return (
-    <header class="py-4 mb-12 border-b bg-white">
+    <header class="py-4 border-b bg-white z-10">
       <div class="container mx-auto px-4 flex justify-between items-center">
         <Link href="/">
           <Logo />
