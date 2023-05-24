@@ -38,7 +38,7 @@ export default component$(() => {
   return (
     <>
       <Banner />
-      <div class="container flex flex-col gap-12 p-4 mb-8">
+      <div class="container flex flex-col gap-12 p-4">
         <div>
           <h1 class="text-2xl text-gray-700 font-semibold mb-6">
             Propiedades mas visitadas en Boca del Rio

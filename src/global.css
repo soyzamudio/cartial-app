@@ -20,5 +20,8 @@ html,
 body {
   max-height: 100% !important;
   height: 100%;
-  background: #f1f2f5;
+}
+
+input:focus {
+  box-shadow: none !important;
 }

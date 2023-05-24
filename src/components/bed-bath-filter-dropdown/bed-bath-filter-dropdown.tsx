@@ -8,9 +8,8 @@ export interface BedBathFilterDropdownProps {
 }
 
 export const BedBathFilterDropdown = component$<BedBathFilterDropdownProps>(
-  (props: BedBathFilterDropdownProps) => {
+  ({ rooms, bathrooms }: BedBathFilterDropdownProps) => {
     const placeholder = useSignal("Recamaras y baños");
-    const { rooms, bathrooms } = props;
 
     const applyFn = $((clear: boolean) => {
       if (clear) {

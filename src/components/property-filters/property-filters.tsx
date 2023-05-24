@@ -4,6 +4,7 @@ import { PriceFilterDropdown } from "../price-filter-dropdown/price-filter-dropd
 import { BedBathFilterDropdown } from "../bed-bath-filter-dropdown/bed-bath-filter-dropdown";
 import { PropertyTypeDropdown } from "../property-type-dropdown/property-type-dropdown";
 import { TransactionTypeDropdown } from "../transaction-type-dropdown/transaction-type-dropdown";
+import { CityFilter } from "../city-filter/city-filter";
 
 export interface PropertyFiltersProps {
   city: Signal<string>;
@@ -30,16 +31,7 @@ export const PropertyFilters = component$<PropertyFiltersProps>(
     return (
       <div class="bg-white border-b shadow-sm mx-auto px-4 py-2 z-10">
         <div class="flex items-center gap-x-2">
-          <input
-            class="border border-gray-300 bg-white text-gray-700 focus:border-violet-700 outline-none rounded px-4 h-10 text-sm lg:w-1/2 lg:max-w-[200px]"
-            type="text"
-            placeholder="Buscar por ciudad, colonia ó código postal"
-            name="city"
-            value={city.value}
-            onBlur$={(e) => {
-              city.value = e.target.value;
-            }}
-          />
+          <CityFilter text={city} />
           <TransactionTypeDropdown type={transactionType} />
           <PriceFilterDropdown price_min={price_min} price_max={price_max} />
           <BedBathFilterDropdown rooms={rooms} bathrooms={bathrooms} />

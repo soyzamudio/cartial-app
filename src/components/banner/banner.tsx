@@ -3,7 +3,7 @@ import { Search } from "../search/search";
 
 export const Banner = component$(() => {
   return (
-    <section class="container mx-auto h-full mb-8 xl:mb-12 mt-12">
+    <section class="container mx-auto h-full lg:h-auto mb-8 xl:mb-12 mt-12">
       <div class="flex flex-col flex-1 justify-center items-center lg:flex-row">
         <div class="flex flex-col items-center lg:items-start text-center lg:text-left justify-center flex-1 px-4 lg:px-0">
           <h1 class="text-4xl lg:text-[58px] font-semibold leading-none mb-6 text-gray-700">
